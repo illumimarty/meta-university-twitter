@@ -1,4 +1,4 @@
-# Assignment 3 - Twitter Clone
+# Assignment 3 - *Twitter Clone*
 
 **Twitter Clone** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
