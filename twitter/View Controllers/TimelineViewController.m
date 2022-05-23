@@ -45,17 +45,8 @@
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
-            
-//            for (NSDictionary *dictionary in tweets) {
-//                NSString *text = dictionary[@"text"];
-//                NSLog(@"%@", text);
-//
-//                Tweet *tweet = [Tweet]
-//                [self.tweetsArray addObject: dictionary];
-//            }
 
             self.tweetsArray = (NSMutableArray *)tweets;
-//            self.tweetsArray = [Tweet tweetsWithArray:tweets];
             
             
             [self.tableView reloadData];
@@ -80,18 +71,15 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];
     
-//    Tweet *tweet = [Tweet ini]
-    NSDictionary *tweet = self.tweetsArray[indexPath.row];
-    NSDictionary *user = tweet[@"user"];
-    
-    NSString *username = user[@"screen_name"];
-    NSString *tweetContent = tweet[@"text"];
+    Tweet *tweet = self.tweetsArray[indexPath.row];
+    User *user = tweet.user;
+
+    NSString *username = user.screenName;
+    NSString *tweetContent = tweet.text;
     
     cell.usernameLabel.text = username;
     cell.tweetLabel.text = tweetContent;
-//    cell.tweetLabel = tweet[@"text"];
-    
-    
+
     return cell;
 }
 
