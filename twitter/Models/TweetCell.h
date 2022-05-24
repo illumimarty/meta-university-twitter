@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tweet.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
+
+- (void)setTweet:(Tweet *)tweet;
 
 @end
 

@@ -22,4 +22,10 @@
     // Configure the view for the selected state
 }
 
+//- (void)setTweet:(Tweet *)tweet {
+//    _tweet = tweet;
+//    
+//    
+//}
+
 @end
