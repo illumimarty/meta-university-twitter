@@ -30,8 +30,13 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-
+    
+    
     [self loadTweets];
+    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
