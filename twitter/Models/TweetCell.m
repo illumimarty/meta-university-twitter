@@ -22,10 +22,23 @@
     // Configure the view for the selected state
 }
 
-//- (void)setTweet:(Tweet *)tweet {
-//    _tweet = tweet;
-//    
-//    
-//}
+- (void)setTweet:(Tweet *)tweet {
+    
+    User *user = tweet.user;
+    
+    NSString *URLString = tweet.user.profilePicture;
+    NSURL *url = [NSURL URLWithString:URLString];
+    NSData *urlData = [NSData dataWithContentsOfURL:url];
+    
+    NSString *date = tweet.createdAtString;
+    NSString *username = user.screenName;
+    NSString *tweetContent = tweet.text;
+    
+    self.usernameLabel.text = username;
+    self.tweetLabel.text = tweetContent;
+    self.profileImageView.image = [UIImage imageWithData:urlData];
+    self.dateLabel.text = date;
+    self.screennameLabel.text = user.screenName;
+}
 
 @end
