@@ -31,7 +31,7 @@
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     
     NSString *date = tweet.createdAtString;
-    NSString *username = user.screenName;
+    NSString *username = user.name;
     NSString *tweetContent = tweet.text;
     
     self.usernameLabel.text = username;
