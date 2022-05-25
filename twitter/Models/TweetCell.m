@@ -22,6 +22,12 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)retweet:(UIButton *)sender {
+}
+
+- (IBAction)favoriteTweet:(UIButton *)sender {
+}
+
 - (void)setTweet:(Tweet *)tweet {
     
     User *user = tweet.user;
@@ -39,6 +45,8 @@
     self.profileImageView.image = [UIImage imageWithData:urlData];
     self.dateLabel.text = date;
     self.screennameLabel.text = [NSString stringWithFormat:@"@%@", user.screenName];
+    self.favoriteCountLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
+    self.retweetCountLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
 }
 
 @end
