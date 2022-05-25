@@ -38,7 +38,7 @@
     self.tweetLabel.text = tweetContent;
     self.profileImageView.image = [UIImage imageWithData:urlData];
     self.dateLabel.text = date;
-    self.screennameLabel.text = user.screenName;
+    self.screennameLabel.text = [NSString stringWithFormat:@"@%@", user.screenName];
 }
 
 @end
