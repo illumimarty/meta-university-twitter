@@ -126,7 +126,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="favor-icon" title=" "/>
                                                     <connections>
-                                                        <action selector="favoriteTweet:" destination="Jgv-37-MH4" eventType="touchUpInside" id="aIG-2x-gG3"/>
+                                                        <action selector="didTapFavorite:" destination="Jgv-37-MH4" eventType="touchUpInside" id="kw3-bP-h4e"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7h-ao-EBr">
@@ -137,7 +137,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="retweet-icon" title=""/>
                                                     <connections>
-                                                        <action selector="retweet:" destination="Jgv-37-MH4" eventType="touchUpInside" id="FaX-aR-w4F"/>
+                                                        <action selector="didTapRetweet:" destination="Jgv-37-MH4" eventType="touchUpInside" id="3zo-rG-fmn"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
