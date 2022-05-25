@@ -169,7 +169,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLabel" destination="G3D-ZJ-PM1" id="20e-aA-PUc"/>
+                                            <outlet property="favoriteCountLabel" destination="80l-I5-0XP" id="dUY-aM-al0"/>
                                             <outlet property="profileImageView" destination="4yL-vm-FpP" id="Lgh-ED-GXZ"/>
+                                            <outlet property="retweetCountLabel" destination="874-w3-MdS" id="RAr-vE-Vc2"/>
                                             <outlet property="screennameLabel" destination="JUo-La-k56" id="a4O-j6-iue"/>
                                             <outlet property="tweetLabel" destination="fd4-FP-t3d" id="4Sk-DD-EoK"/>
                                             <outlet property="usernameLabel" destination="7J7-Nn-uPs" id="281-RJ-BmA"/>
