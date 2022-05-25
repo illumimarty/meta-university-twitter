@@ -47,12 +47,8 @@
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
-
             self.tweetsArray = (NSMutableArray *)tweets;
-            
-            
             [self.tableView reloadData];
-
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
@@ -91,24 +87,9 @@
     
     // Extracting tweet and user data to models
     Tweet *tweet = self.tweetsArray[indexPath.row];
-    User *user = tweet.user;
-
-    
+        
     // Assigning values to TweetCell properties
-    NSString *URLString = tweet.user.profilePicture;
-    NSURL *url = [NSURL URLWithString:URLString];
-    NSData *urlData = [NSData dataWithContentsOfURL:url];
-    
-    
-    
-    NSString *username = user.screenName;
-    NSString *tweetContent = tweet.text;
-    
-    cell.usernameLabel.text = username;
-    cell.tweetLabel.text = tweetContent;
-    cell.profileImageView.image = [UIImage imageWithData:urlData];
-
-
+    [cell setTweet:tweet];
 
     return cell;
 }
