@@ -9,6 +9,7 @@
 #import "TimelineViewController.h"
 #import "LoginViewController.h"
 #import "APIManager.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 
@@ -42,8 +43,9 @@
 
 - (void)goToTimeline {
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    TimelineViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"TimelineViewController"];
-    [self.navigationController pushViewController:vc animated:YES];
+    UINavigationController *tweetsNavigationController = [mainStoryboard instantiateViewControllerWithIdentifier:@"TweetsNavigationController"];
+    
+    [self presentViewController:tweetsNavigationController animated:YES completion:nil];
 }
 
 /*
