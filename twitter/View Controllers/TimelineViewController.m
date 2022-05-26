@@ -114,11 +114,19 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+    if([segue.identifier isEqualToString:@"timelineToDetail"]){
+        NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+        
+        TweetDetailsViewController *vc = [segue destinationViewController];
+        Tweet *tweetToPass = self.tweetsArray[indexPath.row];
+        vc.tweet = tweetToPass;
+//        DetailViewController *controller = (DetailViewController *)segue.destinationViewController;
+//        controller.isDetailingEnabled = YES;
+    }
     
-    TweetDetailsViewController *vc = [segue destinationViewController];
-    Tweet *tweetToPass = self.tweetsArray[indexPath.row];
-    vc.tweet = tweetToPass;
+//    if([segue.identifier isEqualToString:@"timelineToCompose"]) {
+//        
+//    }
 }
 
 
