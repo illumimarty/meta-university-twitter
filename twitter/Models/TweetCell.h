@@ -24,11 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *favoriteCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *retweetCountLabel;
 
-@property (strong, nonatomic) Tweet *tweet;
-
 - (void)setTweetForCell:(Tweet *)tweet;
-- (instancetype)initWithTweet:(Tweet *)tweet; // init
-
 
 @end
 
