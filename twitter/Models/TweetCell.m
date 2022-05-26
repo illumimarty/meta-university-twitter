@@ -78,4 +78,41 @@
     }
 }
 
+- (IBAction)didTapRetweet:(id)sender {
+    
+    // MARK: Update the local tweet model
+    if (self.tweet.retweeted) {
+        self.tweet.retweeted = NO;
+        self.tweet.retweetCount -= 1;
+    } else {
+        self.tweet.retweeted = YES;
+        self.tweet.retweetCount += 1;
+    }
+
+    // MARK: Update cell UI
+    self.retweetCountLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    
+    
+    // MARK: Send a POST request to the POST favorites/create or favorites/destroy endpoint
+    if (self.tweet.retweeted) {
+        [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                 NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+            }
+        }];
+    } else {
+        [[APIManager shared] unretweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                 NSLog(@"Error unretweeted tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully UNretweeted the following Tweet: %@", tweet.text);
+            }
+        }];
+    }
+}
+
 @end
