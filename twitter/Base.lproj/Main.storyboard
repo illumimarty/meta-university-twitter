@@ -283,6 +283,7 @@
                                         <connections>
                                             <outlet property="profileImageView" destination="7pW-bo-fqb" id="7qy-Qf-D1t"/>
                                             <outlet property="screennameLabel" destination="Yyp-Mk-d6e" id="MWh-t0-9zw"/>
+                                            <outlet property="tweetLabel" destination="xYP-SI-bCo" id="SCK-qz-hjB"/>
                                             <outlet property="usernameLabel" destination="8Rj-Y0-bms" id="4fF-Y2-fVP"/>
                                         </connections>
                                     </tableViewCell>

@@ -35,16 +35,15 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    
     TweetDetailsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetDetailsCell" forIndexPath:indexPath];
     
-    cell.usernameLabel.text = [NSString stringWithFormat:@"This is row %ld", (long)indexPath.row];
+    [cell setTweetForCell:self.tweet];
     
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return 1;
 }
 
 @end
