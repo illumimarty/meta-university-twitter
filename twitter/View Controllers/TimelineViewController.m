@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "TimelineViewController.h"
+#import "TweetDetailsViewController.h"
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 #import "APIManager.h"
@@ -107,15 +108,18 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+    
+    TweetDetailsViewController *vc = [segue destinationViewController];
+    Tweet *tweetToPass = self.tweetsArray[indexPath.row];
+    vc.tweet = tweetToPass;
 }
-*/
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
