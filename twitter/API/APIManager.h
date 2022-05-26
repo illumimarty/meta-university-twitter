@@ -15,7 +15,5 @@
 + (instancetype)shared;
 
 - (void)getHomeTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion;
-
 - (void)favorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
-
 @end

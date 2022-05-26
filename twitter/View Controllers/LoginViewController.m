@@ -6,6 +6,7 @@
 //  Copyright © 2018 Emerson Malca. All rights reserved.
 //
 
+#import "TimelineViewController.h"
 #import "LoginViewController.h"
 #import "APIManager.h"
 
@@ -18,6 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    if([[APIManager shared] isAuthorized]) {
+        [self goToTimeline];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,11 +33,17 @@
 - (IBAction)didTapLogin:(id)sender {
     [[APIManager shared] loginWithCompletion:^(BOOL success, NSError *error) {
         if (success) {
-            [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+            [self goToTimeline];
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+}
+
+- (void)goToTimeline {
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    TimelineViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"TimelineViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 /*
