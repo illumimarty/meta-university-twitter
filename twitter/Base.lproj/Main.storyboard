@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c3O-zL-0ZQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FTQ-G1-N2b">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -46,13 +46,14 @@
                             <constraint firstItem="KMY-gb-DAH" firstAttribute="bottom" secondItem="Oyf-Hu-DjK" secondAttribute="centerY" multiplier="3:4" id="b8f-Hh-cKF"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="hRq-iw-c3a"/>
                     <connections>
-                        <segue destination="FTQ-G1-N2b" kind="show" identifier="loginSegue" id="CHf-4w-b5m"/>
+                        <segue destination="Lbl-k5-U4i" kind="show" identifier="loginSegue" id="hIK-NJ-eeJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKJ-HH-8tn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+            <point key="canvasLocation" x="750" y="36"/>
         </scene>
         <!--Home Timeline-->
         <scene sceneID="1Tv-nE-1AW">
@@ -63,11 +64,11 @@
                         <viewControllerLayoutGuide type="bottom" id="pGj-sa-aq5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qax-2F-Vhk">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="07x-H7-cvy">
-                                <rect key="frame" x="0.0" y="56" width="428" height="816"/>
+                                <rect key="frame" x="0.0" y="88" width="428" height="804"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="166" id="Jgv-37-MH4" customClass="TweetCell">
@@ -125,6 +126,9 @@
                                                     <rect key="frame" x="328" y="129" width="58" height="23"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="favor-icon" title=" "/>
+                                                    <connections>
+                                                        <action selector="didTapFavorite:" destination="Jgv-37-MH4" eventType="touchUpInside" id="CFZ-Ax-Za4"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7h-ao-EBr">
                                                     <rect key="frame" x="246" y="130" width="54" height="21"/>
@@ -169,9 +173,11 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLabel" destination="G3D-ZJ-PM1" id="20e-aA-PUc"/>
-                                            <outlet property="favoriteCountLabel" destination="80l-I5-0XP" id="dUY-aM-al0"/>
+                                            <outlet property="favoriteButton" destination="bBs-ti-4vt" id="kqj-Gf-0iP"/>
+                                            <outlet property="favoriteCountLabel" destination="80l-I5-0XP" id="Dcd-q2-u6q"/>
                                             <outlet property="profileImageView" destination="4yL-vm-FpP" id="Lgh-ED-GXZ"/>
-                                            <outlet property="retweetCountLabel" destination="874-w3-MdS" id="RAr-vE-Vc2"/>
+                                            <outlet property="retweetButton" destination="Z7h-ao-EBr" id="Vpm-t0-DOG"/>
+                                            <outlet property="retweetCountLabel" destination="874-w3-MdS" id="UyJ-gU-ZME"/>
                                             <outlet property="screennameLabel" destination="JUo-La-k56" id="a4O-j6-iue"/>
                                             <outlet property="tweetLabel" destination="fd4-FP-t3d" id="4Sk-DD-EoK"/>
                                             <outlet property="usernameLabel" destination="7J7-Nn-uPs" id="281-RJ-BmA"/>
@@ -192,7 +198,7 @@
                     <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="WLd-ng-5ho">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="LSs-M1-PeQ">
-                                <rect key="frame" x="313" y="11" width="95" height="34.333333333333336"/>
+                                <rect key="frame" x="313" y="5" width="95" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Logout"/>
@@ -217,7 +223,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="2Hh-gh-5pC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ytz-Ev-cUB">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -226,12 +232,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Lbl-k5-U4i" kind="relationship" relationship="rootViewController" id="1DH-bv-mXM"/>
+                        <segue destination="c3O-zL-0ZQ" kind="relationship" relationship="rootViewController" id="82D-KF-WD7"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JHS-35-jFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="36.431784107946029"/>
+            <point key="canvasLocation" x="-38" y="29"/>
         </scene>
     </scenes>
     <resources>

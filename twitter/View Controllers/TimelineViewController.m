@@ -6,10 +6,12 @@
 //  Copyright © 2018 Emerson Malca. All rights reserved.
 //
 
+#import "LoginViewController.h"
 #import "TimelineViewController.h"
 #import "APIManager.h"
 #import "TweetCell.h"
 #import "Tweet.h"
+#import "AppDelegate.h"
 
 
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -33,7 +35,6 @@
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:refreshControl atIndex:0];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,7 +90,8 @@
     Tweet *tweet = self.tweetsArray[indexPath.row];
         
     // Assigning values to TweetCell properties
-    [cell setTweet:tweet];
+    
+    [cell setTweetForCell:tweet];
 
     return cell;
 }
