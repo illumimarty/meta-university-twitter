@@ -85,13 +85,8 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];
-    
-    // Extracting tweet and user data to models
-    Tweet *tweet = self.tweetsArray[indexPath.row];
-        
-    // Assigning values to TweetCell properties
-    
-    [cell setTweetForCell:tweet];
+    Tweet *tweet = self.tweetsArray[indexPath.row];  // Extracting tweet and user data to models
+    [cell setTweetForCell:tweet]; // Assigning values to TweetCell properties
 
     return cell;
 }

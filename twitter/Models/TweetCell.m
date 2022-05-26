@@ -12,6 +12,12 @@
 
 @implementation TweetCell
 
+// TODO: Create starting states for each cell
+
+BOOL isFavorited = NO;
+
+
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -44,30 +50,6 @@
     self.favoriteCountLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
     self.retweetCountLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
 }
-
-//- (instancetype)initWithTweet:(Tweet *)tweet {
-//    self = [super init];
-//    if (self) {
-//        User *user = tweet.user;
-//
-//        NSString *URLString = tweet.user.profilePicture;
-//        NSURL *url = [NSURL URLWithString:URLString];
-//        NSData *urlData = [NSData dataWithContentsOfURL:url];
-//
-//        NSString *date = tweet.createdAtString;
-//        NSString *username = user.name;
-//        NSString *tweetContent = tweet.text;
-//
-//        self.usernameLabel.text = username;
-//        self.tweetLabel.text = tweetContent;
-//        self.profileImageView.image = [UIImage imageWithData:urlData];
-//        self.dateLabel.text = date;
-//        self.screennameLabel.text = [NSString stringWithFormat:@"@%@", user.screenName];
-//    }
-//    return self;
-//}
-        
-
 
 - (IBAction)didTapFavorite:(id)sender {
     // TODO: Update the local tweet model
