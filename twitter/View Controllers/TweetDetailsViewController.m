@@ -38,7 +38,7 @@
     
     TweetDetailsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetDetailsCell" forIndexPath:indexPath];
     
-//    cell.usernameLabel.text = [NSString stringWithFormat:@"This is row %ld", (long)indexPath.row];
+    cell.usernameLabel.text = [NSString stringWithFormat:@"This is row %ld", (long)indexPath.row];
     
     return cell;
 }
