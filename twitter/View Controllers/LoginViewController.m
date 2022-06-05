@@ -43,9 +43,10 @@
 
 - (void)goToTimeline {
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UINavigationController *tweetsNavigationController = [mainStoryboard instantiateViewControllerWithIdentifier:@"TweetsNavigationController"];
+//    UINavigationController *tweetsNavigationController = [mainStoryboard instantiateViewControllerWithIdentifier:@"TweetsNavigationController"];
+    UITabBarController *tabBarController = [mainStoryboard instantiateViewControllerWithIdentifier:@"TabBarController"];
     
-    [self presentViewController:tweetsNavigationController animated:YES completion:nil];
+    [self presentViewController:tabBarController animated:YES completion:nil];
 }
 
 /*
