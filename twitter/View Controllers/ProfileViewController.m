@@ -21,8 +21,6 @@
     [self fetchCurrentUserData];
 //    self.user = [[User alloc] initWithDictionary:self.userDictionary];
     
-    self.usernameLabel.text = self.user.name;
-    self.screennameLabel.text = self.user.screenName;
     // Do any additional setup after loading the view.
     
 
@@ -35,7 +33,10 @@
             
 //            self.userDictionary = user;
 //            User* newUser = [[User alloc] initWithDictionary:user];
-            self.user = user;
+            
+            [self setUser:user];
+            [self initalizeViewController];
+            
 //            NSLog(@"%@", user);
 //            [self.tableView reloadData];
         } else {
@@ -43,6 +44,21 @@
         }
     }];
 }
+
+- (void)initalizeViewController {
+    self.usernameLabel.text = self.user.name;
+    self.screennameLabel.text = [NSString stringWithFormat:@"@%@", self.user.screenName];
+    self.bioLabel.text = self.user.bio;
+    self.tweetCountLabel.text = [NSString stringWithFormat:@"%d Tweets", self.user.tweetCount];
+    self.followerCountLabel.text = [NSString stringWithFormat:@"%d Followers", self.user.followersCount];
+    self.followingCountLabel.text = [NSString stringWithFormat:@"%d Following", self.user.friendsCount];
+
+    
+    NSURL *url = [NSURL URLWithString:self.user.profilePicture];
+    NSData *urlData = [NSData dataWithContentsOfURL:url];
+    self.profileImageView.image = [UIImage imageWithData:urlData];
+}
+
 
 /*
 #pragma mark - Navigation
