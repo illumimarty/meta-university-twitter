@@ -315,20 +315,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="WIf-fL-Uzw">
-                                <rect key="frame" x="0.0" y="339.33333333333326" width="428" height="503.66666666666674"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Ciz-qv-b0F">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ciz-qv-b0F" id="ak5-M9-ywg">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jbo-86-972"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -338,7 +324,6 @@
                             <constraint firstItem="Jbo-86-972" firstAttribute="trailing" secondItem="GSO-Sb-8BK" secondAttribute="trailing" constant="16" id="5HS-Px-EEr"/>
                             <constraint firstItem="cZ8-eh-sG0" firstAttribute="top" secondItem="fjQ-cw-KOQ" secondAttribute="bottom" constant="-16" id="6hQ-vf-VJ1"/>
                             <constraint firstItem="DNy-sv-hGA" firstAttribute="leading" secondItem="fNy-jw-GEV" secondAttribute="trailing" constant="8" id="9x7-JJ-nGm"/>
-                            <constraint firstItem="WIf-fL-Uzw" firstAttribute="leading" secondItem="Jbo-86-972" secondAttribute="leading" id="BuM-7W-Ncx"/>
                             <constraint firstItem="fjQ-cw-KOQ" firstAttribute="trailing" secondItem="Jbo-86-972" secondAttribute="trailing" id="GNM-fI-fVr"/>
                             <constraint firstItem="GSO-Sb-8BK" firstAttribute="leading" secondItem="37z-15-rwE" secondAttribute="leading" id="HCp-bj-xVp"/>
                             <constraint firstItem="37z-15-rwE" firstAttribute="top" secondItem="UrU-p9-Nnj" secondAttribute="bottom" constant="1" id="Owb-zN-pCE"/>
@@ -348,15 +333,12 @@
                             <constraint firstItem="Jbo-86-972" firstAttribute="trailing" secondItem="UrU-p9-Nnj" secondAttribute="trailing" constant="16" id="aDT-UY-dZY"/>
                             <constraint firstItem="cZ8-eh-sG0" firstAttribute="leading" secondItem="Jbo-86-972" secondAttribute="leading" constant="16" id="c4p-ke-kf6"/>
                             <constraint firstItem="Jbo-86-972" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6gN-KI-wRN" secondAttribute="trailing" constant="8" id="dy0-mn-KJ8"/>
-                            <constraint firstItem="Jbo-86-972" firstAttribute="trailing" secondItem="WIf-fL-Uzw" secondAttribute="trailing" id="j1m-kX-cXC"/>
                             <constraint firstItem="37z-15-rwE" firstAttribute="leading" secondItem="UrU-p9-Nnj" secondAttribute="leading" id="l2b-AC-3XU"/>
-                            <constraint firstItem="WIf-fL-Uzw" firstAttribute="top" secondItem="DNy-sv-hGA" secondAttribute="bottom" constant="8" id="pcP-Y6-IJK"/>
                             <constraint firstItem="fjQ-cw-KOQ" firstAttribute="top" secondItem="FIy-vF-adw" secondAttribute="top" id="q5i-74-eTl"/>
                             <constraint firstItem="DNy-sv-hGA" firstAttribute="centerY" secondItem="fNy-jw-GEV" secondAttribute="centerY" id="tCh-Sh-X89"/>
                             <constraint firstItem="fNy-jw-GEV" firstAttribute="leading" secondItem="GSO-Sb-8BK" secondAttribute="leading" id="uYG-nS-mXb"/>
                             <constraint firstItem="fNy-jw-GEV" firstAttribute="top" secondItem="GSO-Sb-8BK" secondAttribute="bottom" constant="8" symbolic="YES" id="w7S-bq-6Qb"/>
                             <constraint firstItem="Jbo-86-972" firstAttribute="trailing" secondItem="37z-15-rwE" secondAttribute="trailing" constant="16" id="xSn-pV-M9z"/>
-                            <constraint firstItem="Jbo-86-972" firstAttribute="bottom" secondItem="WIf-fL-Uzw" secondAttribute="bottom" id="y2O-kM-VGA"/>
                             <constraint firstItem="UrU-p9-Nnj" firstAttribute="leading" secondItem="cZ8-eh-sG0" secondAttribute="leading" id="yL4-PL-1Eu"/>
                             <constraint firstItem="fjQ-cw-KOQ" firstAttribute="leading" secondItem="Jbo-86-972" secondAttribute="leading" id="ycJ-1C-1So"/>
                         </constraints>
@@ -369,7 +351,6 @@
                         <outlet property="followingCountLabel" destination="6gN-KI-wRN" id="eyZ-6C-voo"/>
                         <outlet property="profileImageView" destination="cZ8-eh-sG0" id="ZfS-Oz-xkR"/>
                         <outlet property="screennameLabel" destination="37z-15-rwE" id="574-kU-v3B"/>
-                        <outlet property="tableView" destination="WIf-fL-Uzw" id="VZR-7W-Zjo"/>
                         <outlet property="tweetCountLabel" destination="fNy-jw-GEV" id="U8o-O3-DvH"/>
                         <outlet property="usernameLabel" destination="UrU-p9-Nnj" id="Cs7-XA-HZN"/>
                     </connections>
