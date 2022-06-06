@@ -98,6 +98,31 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     }];
 }
 
+- (void)getUserTimeline:(User *)user completion:(void(^)(NSArray *tweets, NSError *error))completion{
+
+    NSString *urlString = @"1.1/statuses/user_timeline.json";
+    NSDictionary *parameters = @{@"user_id": [NSString stringWithFormat:@"%@", user.idStr]};
+    
+    [self GET:@"1.1/statuses/user_timeline.json"
+       parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
+           // Success
+           NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
+           completion(tweets, nil);
+       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+           // There was a problem
+           completion(nil, error);
+    }];
+    
+//    [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
+//
+//        NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
+//        completion(tweets, nil);
+//
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        completion(nil, error);
+//    }];
+}
+
 - (void)favorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
 
     NSString *urlString = @"1.1/favorites/create.json";

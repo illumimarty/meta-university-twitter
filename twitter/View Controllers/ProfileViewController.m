@@ -9,8 +9,11 @@
 #import "ProfileViewController.h"
 #import "APIManager.h"
 #import "User.h"
+#import "TweetCell.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *tweetsArray;
 
 @end
 
@@ -19,6 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self fetchCurrentUserData];
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
 //    self.user = [[User alloc] initWithDictionary:self.userDictionary];
     
     // Do any additional setup after loading the view.
@@ -36,11 +43,24 @@
             
             [self setUser:user];
             [self initalizeViewController];
+            [self fetchCurrentUserTweets];
             
 //            NSLog(@"%@", user);
 //            [self.tableView reloadData];
         } else {
             NSLog(@"😫😫😫 Error fetching user data: %@", error.localizedDescription);
+        }
+    }];
+}
+
+- (void)fetchCurrentUserTweets {
+    [[APIManager shared] getUserTimeline:self.user completion:^(NSArray *tweets, NSError *error) {
+        if (tweets) {
+            NSLog(@"😎😎😎 Successfully loaded home timeline");
+            self.tweetsArray = (NSMutableArray *)tweets;
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
     }];
 }
@@ -69,5 +89,18 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];
+    
+    Tweet *tweet = self.tweetsArray[indexPath.row];  // Extracting tweet and user data to models
+    [cell setTweetForCell:tweet]; // Assigning values to TweetCell properties
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.tweetsArray.count;
+}
 
 @end
