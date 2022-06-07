@@ -31,7 +31,7 @@
     self.tableView.delegate = self;
     
     
-    [self loadTweets];
+    [self loadTweets:20];
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
@@ -68,13 +68,16 @@
 
 
 
-- (void)loadTweets {
+- (void)loadTweets:(int)tweetCountNumber {
     // Get timeline
     
-    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
+    NSString *tweetCount = [NSString stringWithFormat:@"%d", tweetCountNumber];
+    
+    [[APIManager shared] getHomeTimelineWithCompletion:tweetCount completion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
             self.tweetsArray = (NSMutableArray *)tweets;
+            self.isMoreDataLoading = NO;
             [self.tableView reloadData];
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
@@ -85,7 +88,7 @@
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
 
     // Loading new tweets
-    [self loadTweets];
+    [self loadTweets:20];
 
     // ... Use the new data to update the data source ...
 
@@ -132,8 +135,14 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.tweetsArray.count;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.row + 1 == [self.tweetsArray count] && self.isMoreDataLoading == NO){
+        self.isMoreDataLoading = YES;
+        [self loadTweets:(int)[self.tweetsArray count] + 20];
+    }
+}
 
 @end
