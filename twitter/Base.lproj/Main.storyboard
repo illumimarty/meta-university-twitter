@@ -48,12 +48,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="hRq-iw-c3a"/>
                     <connections>
-                        <segue destination="gvG-aC-aRM" kind="show" identifier="loginSegue" id="OpJ-aS-JTC"/>
+                        <segue destination="os6-bl-52x" kind="show" identifier="loginSegue" id="OpJ-aS-JTC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKJ-HH-8tn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="777" y="36"/>
+            <point key="canvasLocation" x="694" y="728"/>
         </scene>
         <!--Home Timeline-->
         <scene sceneID="1Tv-nE-1AW">
@@ -68,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="07x-H7-cvy">
-                                <rect key="frame" x="0.0" y="56" width="428" height="816"/>
+                                <rect key="frame" x="0.0" y="56" width="428" height="787"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="166" id="Jgv-37-MH4" customClass="TweetCell">
@@ -184,7 +184,7 @@
                                             <outlet property="screennameLabel" destination="JUo-La-k56" id="a4O-j6-iue"/>
                                             <outlet property="tweetLabel" destination="fd4-FP-t3d" id="4Sk-DD-EoK"/>
                                             <outlet property="usernameLabel" destination="7J7-Nn-uPs" id="281-RJ-BmA"/>
-                                            <segue destination="393-2Q-UyV" kind="show" id="paC-rw-FM9"/>
+                                            <segue destination="393-2Q-UyV" kind="show" identifier="timelineToDetail" id="paC-rw-FM9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -200,16 +200,21 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="ZU9-DM-Q91">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="ZU9-DM-Q91">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="H9l-FA-caO">
-                                <rect key="frame" x="313" y="11" width="95" height="34.333333333333336"/>
+                                <rect key="frame" x="20.000000000000004" y="11" width="54.333333333333343" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Log Out"/>
+                                <buttonConfiguration key="configuration" style="plain" image="power.circle" catalog="system" title=" "/>
                                 <connections>
                                     <action selector="logout:" destination="Lbl-k5-U4i" eventType="touchUpInside" id="rFg-Jc-3je"/>
                                 </connections>
                             </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="edit-icon" id="yqg-w1-YoS">
+                            <connections>
+                                <segue destination="eKM-7j-hSC" kind="presentation" identifier="timelineToCompose" id="Yss-YH-E0z"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -218,7 +223,73 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQh-hN-GQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2559.8130841121492" y="36.285097192224626"/>
+            <point key="canvasLocation" x="3459.8130841121492" y="36.285097192224626"/>
+        </scene>
+        <!--ComposeViewController-->
+        <scene sceneID="A3y-Tx-u1o">
+            <objects>
+                <viewController title="ComposeViewController" modalPresentationStyle="fullScreen" id="gFq-aJ-JJd" customClass="ComposeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xWK-DE-ZWL">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5wn-JX-rzI">
+                                <rect key="frame" x="0.0" y="88" width="428" height="142"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uw3-wx-NPg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="atc-Vq-CPZ">
+                        <barButtonItem key="leftBarButtonItem" image="close-icon" id="5BT-Qh-6yP">
+                            <connections>
+                                <action selector="didTapCloseButton:" destination="gFq-aJ-JJd" id="UEN-O9-ALW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Publish" id="s56-Or-1gB">
+                            <connections>
+                                <action selector="didTapPublishButton:" destination="gFq-aJ-JJd" id="f31-v5-qLc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="draftTextView" destination="5wn-JX-rzI" id="giw-wG-rrh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RzR-MK-Zp1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5425.2336448598126" y="-241.03671706263501"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="KlU-bt-J9h">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="dZu-L3-H7P" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FIy-vF-adw">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muP-yR-N8Y">
+                                <rect key="frame" x="193" y="523" width="48" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Jbo-86-972"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="l41-gS-1wW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QaG-A7-XGV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4359.8130841121492" y="1187.6889848812095"/>
         </scene>
         <!--TweetDetailsViewController-->
         <scene sceneID="bB0-7h-Jkr">
@@ -306,16 +377,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2E-0W-MIX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3354.6728971962616" y="35.637149028077758"/>
+            <point key="canvasLocation" x="4378.0373831775696" y="477.53779697624191"/>
         </scene>
         <!--TweetsNavigationController-->
         <scene sceneID="JEi-Hf-N4U">
             <objects>
                 <navigationController storyboardIdentifier="TweetsNavigationController" title="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="gvG-aC-aRM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="home-icon" id="r34-gU-lMk"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="XKM-fq-Fma"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eId-P2-rgF">
-                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -325,14 +397,79 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UPT-sG-vY3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1659.8130841121495" y="36.285097192224626"/>
+            <point key="canvasLocation" x="2559.8130841121492" y="36.285097192224626"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aSe-4C-7eA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="eKM-7j-hSC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1rJ-H1-K48">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gFq-aJ-JJd" kind="relationship" relationship="rootViewController" id="J99-mF-Poh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Il-Lq-OoE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4523.8317757009345" y="-241.03671706263501"/>
+        </scene>
+        <!--TabBarController-->
+        <scene sceneID="gvj-3n-Pod">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" title="TabBarController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="os6-bl-52x" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="t4P-CO-x3N"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dqs-uT-eIx">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="gvG-aC-aRM" kind="relationship" relationship="viewControllers" id="1EB-7b-Ahc"/>
+                        <segue destination="n9u-9u-zp8" kind="relationship" relationship="viewControllers" id="DwC-Xe-jH8"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9vg-S5-Jcr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1466" y="728"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="Sll-6J-51d">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="n9u-9u-zp8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile-Icon" id="Syp-Ga-jd5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eja-pj-Hd7">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dZu-L3-H7P" kind="relationship" relationship="rootViewController" id="3YC-e8-b2x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="baX-a1-fPc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3459.8130841121492" y="1187.6889848812095"/>
         </scene>
     </scenes>
     <resources>
         <image name="TwitterLogoBlue" width="133.33332824707031" height="133.33332824707031"/>
         <image name="account-icon" width="30" height="25"/>
+        <image name="close-icon" width="26" height="24"/>
+        <image name="edit-icon" width="30" height="27"/>
         <image name="favor-icon" width="30" height="30"/>
+        <image name="home-icon" width="30" height="30"/>
+        <image name="power.circle" catalog="system" width="128" height="121"/>
+        <image name="profile-Icon" width="26" height="26"/>
         <image name="retweet-icon" width="30" height="30"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
