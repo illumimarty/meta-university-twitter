@@ -11,7 +11,7 @@
 #import "Tweet.h"
 
 
-@interface ComposeViewController ()
+@interface ComposeViewController () <UITextViewDelegate>
 @end
 
 @implementation ComposeViewController
@@ -37,7 +37,7 @@
     // MARK: if draft is filled with text, post tweet!
     if (tweetDraftString) {
         NSLog(@"%@", tweetDraftString);
-        [[APIManager shared]postStatusWithText:@"apparently my code doesnt work 🥲" completion:^(Tweet *tweet, NSError *error) {
+        [[APIManager shared]postStatusWithText: self.draftTextView.text completion:^(Tweet *tweet, NSError *error) {
             if(error){
                 NSLog(@"Error composing Tweet: %@", error.localizedDescription);
             }
