@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "TimelineViewController.h"
 #import "TweetDetailsViewController.h"
+#import "ComposeViewController.h"
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 #import "APIManager.h"
@@ -17,7 +18,7 @@
 #import "AppDelegate.h"
 
 
-@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *tweetsArray;
 @end
@@ -124,9 +125,11 @@
 //        controller.isDetailingEnabled = YES;
     }
     
-//    if([segue.identifier isEqualToString:@"timelineToCompose"]) {
-//        
-//    }
+    if ([segue.identifier isEqualToString:@"timelineToCompose"]) {
+        UINavigationController *nav = [segue destinationViewController];
+        ComposeViewController *composeVC = (ComposeViewController*)nav.topViewController;
+        composeVC.delegate = self;
+    }
 }
 
 
@@ -143,5 +146,14 @@
     return 20;
 }
 
+
+- (void)didTweet:(nonnull Tweet *)tweet {
+    
+    // MARK: run method after current user publishes a tweet
+    
+    
+    [self.tweetsArray insertObject:tweet atIndex:0];
+    [self.tableView reloadData];
+}
 
 @end

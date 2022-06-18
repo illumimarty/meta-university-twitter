@@ -7,6 +7,9 @@
 //
 
 #import "ComposeViewController.h"
+#import "APIManager.h"
+#import "Tweet.h"
+
 
 @interface ComposeViewController ()
 @end
@@ -28,7 +31,36 @@
 }
 */
 
+- (void)publishTweet {
+    NSString *tweetDraftString = self.draftTextView.text;
+    
+    // MARK: if draft is filled with text, post tweet!
+    if (tweetDraftString) {
+        NSLog(@"%@", tweetDraftString);
+        [[APIManager shared]postStatusWithText:@"apparently my code doesnt work 🥲" completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                NSLog(@"Error composing Tweet: %@", error.localizedDescription);
+            }
+            else{
+                [self.delegate didTweet:tweet];
+                [self dismissViewControllerAnimated:YES completion:nil];
+                NSLog(@"Compose Tweet Success!");
+            }
+        }];
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Draft is empty" message:@"Type out a tweet before publishing!" preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:^{
+            // optional code for what happens after the alert controller has finished presenting
+        }];
+    }
+    
+    
+}
+
 - (IBAction)didTapPublishButton:(id)sender {
+    [self publishTweet];
 }
 
 - (IBAction)didTapCloseButton:(id)sender {
