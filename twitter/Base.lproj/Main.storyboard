@@ -233,18 +233,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5wn-JX-rzI">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5wn-JX-rzI">
                                 <rect key="frame" x="0.0" y="88" width="428" height="142"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5wn-JX-rzI" secondAttribute="height" multiplier="214:71" id="i9A-wa-3Z1"/>
+                                </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkJ-vO-Nqm">
+                                <rect key="frame" x="366" y="190" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uw3-wx-NPg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uw3-wx-NPg" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xkJ-vO-Nqm" secondAttribute="trailing" symbolic="YES" id="2YT-gc-xsv"/>
+                            <constraint firstItem="5wn-JX-rzI" firstAttribute="leading" secondItem="uw3-wx-NPg" secondAttribute="leading" id="3Fb-nG-lED"/>
+                            <constraint firstItem="5wn-JX-rzI" firstAttribute="trailing" secondItem="uw3-wx-NPg" secondAttribute="trailing" id="3bs-d9-8Xb"/>
+                            <constraint firstItem="xkJ-vO-Nqm" firstAttribute="top" secondItem="5wn-JX-rzI" secondAttribute="bottom" constant="-40" id="dea-zI-7Ky"/>
+                            <constraint firstItem="xkJ-vO-Nqm" firstAttribute="leading" secondItem="5wn-JX-rzI" secondAttribute="trailing" constant="-62" id="ewy-aH-r8O"/>
+                            <constraint firstItem="5wn-JX-rzI" firstAttribute="top" secondItem="uw3-wx-NPg" secondAttribute="top" id="hdz-P6-nrt"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="atc-Vq-CPZ">
                         <barButtonItem key="leftBarButtonItem" image="close-icon" id="5BT-Qh-6yP">
@@ -259,6 +274,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="charCountLabel" destination="xkJ-vO-Nqm" id="4fL-do-8FN"/>
                         <outlet property="draftTextView" destination="5wn-JX-rzI" id="giw-wG-rrh"/>
                     </connections>
                 </viewController>
@@ -472,6 +488,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

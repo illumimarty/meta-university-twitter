@@ -18,18 +18,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.draftTextView.delegate = self;
+    [self.charCountLabel setText:[NSString stringWithFormat:@"%d", 280]];
     // Do any additional setup after loading the view.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+// Updates text label with the remaining characters left before maxing out char limit
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    // TODO: check the proposed new text char count
+    
+    int charLimit = 280;
+    int charsLeft = charLimit - (int)self.draftTextView.text.length;
+
+    // Construct what new text would be if we allowed the user's latest edit
+    NSString *newText = [self.draftTextView.text stringByReplacingCharactersInRange:range withString:text];
+    
+    // TODO: update character count
+    [self.charCountLabel setText:[NSString stringWithFormat:@"%d", charsLeft]];
+    
+    // SHould the new text be allowed to show on the view?
+    return newText.length < charLimit;
+
 }
-*/
 
 - (void)publishTweet {
     NSString *tweetDraftString = self.draftTextView.text;
@@ -55,8 +68,6 @@
             // optional code for what happens after the alert controller has finished presenting
         }];
     }
-    
-    
 }
 
 - (IBAction)didTapPublishButton:(id)sender {
