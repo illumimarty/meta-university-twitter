@@ -15,6 +15,8 @@
     self = [super init];
     if (self) {
         
+        NSLog(@"%@", dictionary);
+        
         // Is this a retweet?
         NSDictionary *originalTweet = dictionary[@"retweeted_status"];
         
@@ -27,7 +29,6 @@
         }
         
         self.idStr = dictionary[@"id_str"];
-//        self.text = dictionary[@"text"];
         
         if([dictionary valueForKey:@"full_text"] != nil) {
             self.text = dictionary[@"full_text"]; // uses full text if Twitter API provided it
@@ -39,6 +40,17 @@
         self.favorited = [dictionary[@"favorited"] boolValue];
         self.retweetCount = [dictionary[@"retweet_count"] intValue];
         self.retweeted = [dictionary[@"retweeted"] boolValue];
+        
+        // TODO: Check if tweet has entities -> media object
+        NSDictionary *entities = dictionary[@"entities"];
+        
+        if ([entities objectForKey:@"media"] != nil) { // extract media URL, if available
+            NSArray *media = entities[@"media"];
+            self.mediaURLString = media[0][@"media_url_https"];
+        } else {
+            self.mediaURLString = @"";
+        }
+        
         
         // TODO: initialize user
         NSDictionary *user = dictionary[@"user"];

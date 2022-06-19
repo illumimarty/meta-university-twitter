@@ -76,6 +76,10 @@
     
     [[APIManager shared] getHomeTimelineWithCompletion:tweetCount completion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
+
+//            for (Tweet *tweet in tweets) {
+//                NSLog(@"%@", tweet);
+//            }
             NSLog(@"😎😎😎 Successfully loaded home timeline");
             self.tweetsArray = (NSMutableArray *)tweets;
             self.isMoreDataLoading = NO;
