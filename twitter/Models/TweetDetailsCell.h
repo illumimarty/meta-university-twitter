@@ -17,7 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *screennameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
+@property (weak, nonatomic) IBOutlet UITextView *tweetLabel; // TODO: refactor name to "tweetTextView" to be more consistent
+
 
 - (void)setTweetForCell:(Tweet *)tweet;
 
