@@ -141,15 +141,18 @@
                                                         <action selector="didTapRetweet:" destination="Jgv-37-MH4" eventType="touchUpInside" id="qSB-Bw-uLE"/>
                                                     </connections>
                                                 </button>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ejn-7K-hHr">
-                                                    <rect key="frame" x="88" y="140.66666666666663" width="320" height="212.33333333333337"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ejn-7K-hHr">
+                                                    <rect key="frame" x="88" y="132.66666666666666" width="320" height="211.99999999999997"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="ejn-7K-hHr" secondAttribute="height" multiplier="80:53" id="TlI-Z9-xkg"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="JUo-La-k56" firstAttribute="leading" secondItem="7J7-Nn-uPs" secondAttribute="trailing" constant="8" id="08Q-aJ-BdF"/>
                                                 <constraint firstItem="bBs-ti-4vt" firstAttribute="centerY" secondItem="80l-I5-0XP" secondAttribute="centerY" id="1Vo-M8-Hzh"/>
                                                 <constraint firstAttribute="trailing" secondItem="ejn-7K-hHr" secondAttribute="trailing" constant="20" symbolic="YES" id="7lI-Rm-Mvy"/>
-                                                <constraint firstItem="80l-I5-0XP" firstAttribute="top" secondItem="ejn-7K-hHr" secondAttribute="bottom" constant="16" id="8ta-5t-DMn"/>
+                                                <constraint firstItem="80l-I5-0XP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ejn-7K-hHr" secondAttribute="bottom" constant="16" id="8ta-5t-DMn"/>
                                                 <constraint firstItem="JUo-La-k56" firstAttribute="top" secondItem="7J7-Nn-uPs" secondAttribute="top" id="9Kz-Xf-DF4"/>
                                                 <constraint firstItem="7J7-Nn-uPs" firstAttribute="leading" secondItem="4yL-vm-FpP" secondAttribute="trailing" constant="8" id="BR5-Yf-i7W"/>
                                                 <constraint firstItem="Z7h-ao-EBr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iNK-8D-wrm" secondAttribute="leading" constant="20" symbolic="YES" id="C6h-Lz-KMq"/>
@@ -164,7 +167,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="874-w3-MdS" secondAttribute="bottom" constant="16" id="QDX-4a-Ych"/>
                                                 <constraint firstAttribute="trailing" secondItem="80l-I5-0XP" secondAttribute="trailing" constant="20" symbolic="YES" id="S1H-X4-ULO"/>
                                                 <constraint firstAttribute="bottom" secondItem="Z7h-ao-EBr" secondAttribute="bottom" constant="15" id="T7e-Kb-78w"/>
-                                                <constraint firstItem="ejn-7K-hHr" firstAttribute="top" secondItem="fd4-FP-t3d" secondAttribute="bottom" constant="24" id="YjH-oW-BdI"/>
+                                                <constraint firstItem="ejn-7K-hHr" firstAttribute="top" secondItem="fd4-FP-t3d" secondAttribute="bottom" constant="16" id="YjH-oW-BdI"/>
                                                 <constraint firstItem="Z7h-ao-EBr" firstAttribute="centerY" secondItem="874-w3-MdS" secondAttribute="centerY" id="aUV-cU-NSm"/>
                                                 <constraint firstItem="G3D-ZJ-PM1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JUo-La-k56" secondAttribute="trailing" constant="8" id="eEo-Cg-mbs"/>
                                                 <constraint firstItem="fd4-FP-t3d" firstAttribute="top" secondItem="G3D-ZJ-PM1" secondAttribute="bottom" constant="8" symbolic="YES" id="g1O-lZ-8T0"/>

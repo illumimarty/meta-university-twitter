@@ -40,10 +40,13 @@
     self.favoriteCountLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
     self.retweetCountLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
     
-    if (tweet.mediaURLString.length != 0) {
+    self.mediaImageView.image = nil;
+    if (tweet.mediaURLString) {
         NSURL *url = [NSURL URLWithString:tweet.mediaURLString];
         NSData *urlData = [NSData dataWithContentsOfURL:url];
         self.mediaImageView.image = [UIImage imageWithData:urlData];
+    } else {
+        [self.mediaImageView removeFromSuperview];
     }
     
 }

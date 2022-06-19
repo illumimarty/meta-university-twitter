@@ -48,7 +48,7 @@
             NSArray *media = entities[@"media"];
             self.mediaURLString = media[0][@"media_url_https"];
         } else {
-            self.mediaURLString = @"";
+            self.mediaURLString = nil;
         }
         
         
