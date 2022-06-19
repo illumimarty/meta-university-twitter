@@ -274,6 +274,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="charCountLabel" destination="xkJ-vO-Nqm" id="4fL-do-8FN"/>
                         <outlet property="draftTextView" destination="5wn-JX-rzI" id="giw-wG-rrh"/>
                     </connections>
                 </viewController>

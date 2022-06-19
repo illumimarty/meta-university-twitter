@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) id<ComposeViewControllerDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UITextView *draftTextView;
+@property (weak, nonatomic) IBOutlet UILabel *charCountLabel;
 
 
 - (IBAction)didTapCloseButton:(id)sender;
