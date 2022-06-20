@@ -25,6 +25,11 @@
         
         UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
         self.window.rootViewController = tabBarController;
+        
+//        UIViewController *mstViewController = [[UIViewController alloc] initWithNibName:@"mstViewController" bundle:[NSBundle mainBundle]];
+        
+        UIViewController *profileViewController = [[UIViewController alloc] initWithNibName:@"profileViewController" bundle:[NSBundle mainBundle]];
+
     }
     
     return YES;

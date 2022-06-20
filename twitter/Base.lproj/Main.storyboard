@@ -282,22 +282,13 @@
             </objects>
             <point key="canvasLocation" x="5425.2336448598126" y="-241.03671706263501"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--ProfileViewController-->
         <scene sceneID="KlU-bt-J9h">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="dZu-L3-H7P" customClass="ProfileViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="FIy-vF-adw">
+                <viewController title="ProfileViewController" modalPresentationStyle="fullScreen" id="dZu-L3-H7P" customClass="ProfileViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FIy-vF-adw" customClass="ProfileXIBView">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muP-yR-N8Y">
-                                <rect key="frame" x="193" y="523" width="48" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Jbo-86-972"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>

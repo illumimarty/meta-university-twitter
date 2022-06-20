@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchCurrentUserData];
+//    [self fetchCurrentUserData];
 //    self.user = [[User alloc] initWithDictionary:self.userDictionary];
     
     // Do any additional setup after loading the view.
