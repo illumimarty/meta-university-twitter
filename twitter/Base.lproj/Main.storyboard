@@ -473,7 +473,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baX-a1-fPc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3459.8130841121492" y="1187.6889848812095"/>
+            <point key="canvasLocation" x="2560" y="1188"/>
         </scene>
     </scenes>
     <resources>
